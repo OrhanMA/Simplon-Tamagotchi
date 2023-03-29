@@ -9,6 +9,44 @@
     <script src="script.ts" type="module"></script>
   </head>
   <body>
-    <h1>blop</h1>
+    <div class="top-text">
+      <h1>Welcome,</h1>
+      <p>
+        please enter a name and select one of the two characters to start the
+        game:
+      </p>
+    </div>
+    <div class="character-selection">
+      <div class="kamel-card">
+        <p>Kamel</p>
+        <div class="card-background">
+          <img
+            class="card-image"
+            src="../assets/kamel/kamel-yo-nobg.png"
+            alt="kamel's face"
+          />
+        </div>
+      </div>
+      <div class="billy-card">
+        <p>Billy</p>
+        <div class="card-background">
+          <img
+            class="card-image"
+            src="../assets/billy/billy-coucou-nobg.png"
+            alt="billy's face"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="name-input">
+      <p>Name:</p>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        placeholder="enter a name"
+      />
+    </div>
+    <button class="start-button">Start</button>
   </body>
 </html>
