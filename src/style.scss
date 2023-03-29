@@ -19,8 +19,23 @@ $button-color: #38f908;
 }
 
 body {
+  @media screen and (min-width: 900px) {
+    @include rowfullcenter();
+    flex-direction: row;
+    flex-wrap: nowrap;
+    .rules {
+      width: 45%;
+      padding: 5rem;
+    }
+    .homepage {
+      width: 55%;
+    }
+  }
+}
+body > * {
   @include rowfullcenter();
   flex-direction: column;
+
   * {
     width: 95%;
   }
@@ -90,7 +105,133 @@ body {
   padding: 2rem;
   margin: 4rem;
   font-size: 2rem;
-  width: 60%;
+  width: 40%;
   background-color: $button-color;
   border-radius: 25;
+}
+
+.rules {
+  width: 100%;
+  padding: 1rem;
+  background-color: $primary-color;
+  color: white;
+  font-weight: bold;
+  h2 {
+    font-size: 2.5rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+  ul {
+    font-size: 1.75rem;
+  }
+  * {
+    margin: 2rem;
+  }
+  @media screen and (min-width: 900px) {
+    height: 100vh;
+  }
+}
+
+.game {
+  width: 100%;
+  height: 100vh;
+  @include rowfullcenter();
+  flex-direction: column;
+  @media screen and (min-width: 900px) {
+    @include rowfullcenter();
+    flex-direction: row;
+  }
+
+  .character-side {
+    background-image: url("../assets/canape.jpeg");
+    background-size: cover;
+    @include rowfullcenter();
+    width: 100%;
+    height: 35%;
+    @media screen and (min-width: 600px) and (max-width: 899px) {
+      height: 50%;
+    }
+    @media screen and (min-width: 900px) {
+      width: 55%;
+      height: 100%;
+    }
+    img {
+      height: 150px;
+      width: auto;
+      @media screen and (min-width: 600px) and (max-width: 899px) {
+        height: 200px;
+      }
+      @media screen and (min-width: 900px) {
+        height: 280px;
+      }
+    }
+  }
+
+  .status-side {
+    color: white;
+    font-size: 2.5rem;
+    background-color: $primary-color;
+    width: 100%;
+    height: 65%;
+    @media screen and (min-width: 900px) {
+      width: 45%;
+      height: 100%;
+      border-left: solid 2px black;
+    }
+    img {
+      width: 40px;
+      @media screen and (min-width: 450px) {
+        width: 50px;
+      }
+    }
+    .bars {
+      @include rowfullcenter();
+      flex-direction: column;
+      text-align: center;
+      height: 60%;
+      @media screen and (min-width: 600px) and (max-width: 899px) {
+        max-width: 70%;
+      }
+      @media screen and (min-width: 900px) {
+        height: 60%;
+        padding: 0.5rem;
+        div {
+          margin: 2rem;
+        }
+      }
+    }
+    .feed-options {
+      @include rowfullcenter();
+      padding: 2rem;
+      text-align: center;
+      align-items: flex-start;
+      @media screen and (min-width: 600px) and (max-width: 899px) {
+        max-width: 70%;
+      }
+      @media screen and (min-width: 900px) {
+        height: 40%;
+        padding: 1rem;
+        div {
+          margin: 2rem;
+        }
+      }
+      div {
+        gap: 10px;
+        @include rowfullcenter();
+        flex-direction: column;
+        div {
+          width: 70px;
+          height: 70px;
+          background-color: white;
+          padding: 5px;
+          border-radius: 100;
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }

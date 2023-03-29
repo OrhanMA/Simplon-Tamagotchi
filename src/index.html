@@ -9,44 +9,102 @@
     <script src="script.ts" type="module"></script>
   </head>
   <body>
-    <div class="top-text">
-      <h1>Welcome,</h1>
-      <p>
-        please enter a name and select one of the two characters to start the
-        game:
-      </p>
-    </div>
-    <div class="character-selection">
-      <div class="kamel-card">
-        <p>Kamel</p>
-        <div class="card-background">
-          <img
-            class="card-image"
-            src="../assets/kamel/kamel-yo-nobg.png"
-            alt="kamel's face"
-          />
+    <div class="homepage">
+      <div class="top-text">
+        <h1>Welcome,</h1>
+        <p>
+          please enter a name and select one of the two characters to start the
+          game:
+        </p>
+      </div>
+      <div class="character-selection">
+        <div class="kamel-card">
+          <p>Kamel</p>
+          <div class="card-background">
+            <img
+              class="card-image"
+              src="../assets/kamel/kamel-yo-nobg.png"
+              alt="kamel's face"
+            />
+          </div>
+        </div>
+        <div class="billy-card">
+          <p>Billy</p>
+          <div class="card-background">
+            <img
+              class="card-image"
+              src="../assets/billy/billy-coucou-nobg.png"
+              alt="billy's face"
+            />
+          </div>
         </div>
       </div>
-      <div class="billy-card">
-        <p>Billy</p>
-        <div class="card-background">
-          <img
-            class="card-image"
-            src="../assets/billy/billy-coucou-nobg.png"
-            alt="billy's face"
-          />
+      <div class="name-input">
+        <p>Name:</p>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="enter a name"
+        />
+      </div>
+      <button class="start-button">Start</button>
+    </div>
+    <div class="rules">
+      <h2>Rules:</h2>
+      <p>The character has 3 status bars:</p>
+      <ul>
+        <li>Hapiness</li>
+        <li>Hunger</li>
+        <li>Thirst</li>
+      </ul>
+      <p>If one of these get to 0, the game is over</p>
+      <p>You can use the available options to fill your character's bars.</p>
+    </div>
+    <div class="game hidden">
+      <div class="character-side">
+        <img
+          src="../assets/billy/billy-happy-nobg.png"
+          alt="billy's happy face"
+        />
+      </div>
+      <div class="status-side">
+        <div class="bars">
+          <div>
+            <p>Hapiness</p>
+            <progress id="bar-1" min="0" max="100" value="100"></progress>
+          </div>
+          <div>
+            <p>Hunger</p>
+            <progress id="bar-2" min="0" max="100" value="100"></progress>
+          </div>
+          <div>
+            <p>Thirst</p>
+            <progress id="bar-3" min="0" max="100" value="100"></progress>
+          </div>
+        </div>
+        <div class="feed-options">
+          <div>
+            <p>Feed</p>
+            <div>
+              <img src="../assets/billy/billy-feed/tiger.png" alt="tiger" />
+            </div>
+          </div>
+          <div class="water">
+            <p>Feed</p>
+            <div>
+              <img src="../assets/billy/billy-feed/water.png" alt="water" />
+            </div>
+          </div>
+          <div>
+            <p>Feed</p>
+            <div>
+              <img src="../assets/billy/billy-feed/donuts.png" alt="donuts" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="name-input">
-      <p>Name:</p>
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="enter a name"
-      />
-    </div>
-    <button class="start-button">Start</button>
   </body>
+  <audio id="pinaise" src="../assets/billy/billy-sounds/pinaise.mp3"></audio>
 </html>
