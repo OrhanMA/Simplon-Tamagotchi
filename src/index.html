@@ -64,8 +64,19 @@
     <div class="game hidden">
       <div class="character-side">
         <img
+          class="face"
           src="../assets/billy/billy-happy-nobg.png"
           alt="billy's happy face"
+        />
+        <img
+          class="face hidden"
+          src="../assets/billy/billy-neutre-nobg.png"
+          alt="billy's neutral face"
+        />
+        <img
+          class="face hidden"
+          src="../assets/billy/billy-fou-nobg.png"
+          alt="billy's rage face"
         />
       </div>
       <div class="status-side">
@@ -84,27 +95,37 @@
           </div>
         </div>
         <div class="feed-options">
-          <div>
+          <div class="feed feed1">
             <p>Feed</p>
             <div>
               <img src="../assets/billy/billy-feed/tiger.png" alt="tiger" />
             </div>
           </div>
-          <div class="water">
-            <p>Feed</p>
-            <div>
-              <img src="../assets/billy/billy-feed/water.png" alt="water" />
-            </div>
-          </div>
-          <div>
+          <div class="feed feed2">
             <p>Feed</p>
             <div>
               <img src="../assets/billy/billy-feed/donuts.png" alt="donuts" />
             </div>
           </div>
+          <div class="feed feed3">
+            <p>Feed</p>
+            <div>
+              <img src="../assets/billy/billy-feed/water.png" alt="water" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="game-over hidden">
+      <h2>Game over!</h2>
+      <button>Play again?</button>
+    </div>
   </body>
   <audio id="pinaise" src="../assets/billy/billy-sounds/pinaise.mp3"></audio>
+  <audio id="donuts" src="../assets/billy/billy-sounds/donuts.mp3"></audio>
+  <audio id="con" src="../assets/billy/billy-sounds/con.mp3"></audio>
+  <audio id="crasseux" src="../assets/billy/billy-sounds/crasseux.mp3"></audio>
+  <audio id="reuf" src="../assets/billy/billy-sounds/reuf.mp3"></audio>
+  <audio id="lacune" src="../assets/billy/billy-sounds/lacune.mp3"></audio>
+  <audio id="bart" src="../assets/billy/billy-sounds/bart.mp3"></audio>
 </html>

@@ -232,6 +232,38 @@ body > * {
   }
 }
 
+.game-over {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../assets/canape.jpeg);
+  background-size: cover;
+  font-weight: bold;
+  @include rowfullcenter();
+  flex-direction: column;
+  text-align: center;
+  gap: 20rem;
+  h2 {
+    font-size: 4rem;
+    @media screen and (min-width: 400px) {
+      font-size: 5rem;
+    }
+    @media screen and (min-width: 900px) {
+      font-size: 7rem;
+    }
+  }
+  button {
+    padding: 3rem;
+    background-color: $button-color;
+    font-size: 2rem;
+    width: 150px;
+    border-radius: 25;
+    @media screen and (min-width: 400px) {
+      width: 300px;
+      font-size: 3rem;
+    }
+  }
+}
+
 .hidden {
   display: none;
 }
