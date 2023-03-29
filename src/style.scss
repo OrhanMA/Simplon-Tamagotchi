@@ -65,6 +65,8 @@ body > * {
     gap: 2rem;
     font-size: 2.5rem;
     font-weight: bold;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 
@@ -266,4 +268,16 @@ body > * {
 
 .hidden {
   display: none;
+}
+
+.card-selected {
+  background-color: $primary-color;
+  border-radius: 25;
+  border: solid 2px black;
+  p {
+    color: white;
+  }
+  div {
+    background-color: white;
+  }
 }

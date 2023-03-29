@@ -55,6 +55,8 @@ function startInterval() {
         clearInterval(interval);
         console.log("Game over!");
       } else if (element.value > 50) {
+        element.classList.remove("yellow-bar");
+
         faces[0].classList.remove("hidden");
         faces[1].classList.add("hidden");
         faces[2].classList.add("hidden");
@@ -174,3 +176,20 @@ function soundListener(element) {
     playSound(bart.src);
   }
 }
+
+const again = document.getElementById("again") as HTMLButtonElement;
+again.addEventListener("click", () => {
+  location.reload();
+});
+
+const cards = document.querySelectorAll(".card") as NodeListOf<HTMLDivElement>;
+
+cards[0].addEventListener("click", () => {
+  cards[0].classList.add("card-selected");
+  cards[1].classList.remove("card-selected");
+});
+
+cards[1].addEventListener("click", () => {
+  cards[1].classList.add("card-selected");
+  cards[0].classList.remove("card-selected");
+});
