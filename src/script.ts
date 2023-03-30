@@ -1,137 +1,146 @@
-"use strict";
+console.log("test");
 
-import { Character } from "./character";
-import { Kamel } from "./kamel";
+export default class Streamer {
+  name: string;
+  constructor(name) {
+    name = this.name;
+  }
+}
+
+class Billy extends Streamer {
+  food: string = "Donuts";
+
+  changeFoodDisplay() {
+    const need = document.querySelector(".need3") as HTMLParagraphElement;
+    const feed = document.querySelector(".feed3") as HTMLButtonElement;
+    need.textContent = this.food;
+    feed.textContent = this.food;
+  }
+  changePictureDisplay() {
+    billyFace.classList.remove("hidden");
+  }
+  changeFeed1() {
+    const feed1 = document.querySelector(".feed1") as HTMLButtonElement;
+    const need1 = document.querySelector(".need1") as HTMLParagraphElement;
+    feed1.textContent = "LOL";
+    need1.textContent = "League of Legends";
+  }
+  /* makeCharacterAppear() {
+    const billyFace = document.querySelector(".billy-face") as HTMLImageElement;
+    billyFace.classList.remove(".hidden");
+  } */
+}
+
+class Kamel extends Streamer {
+  activity: string = "Gaming";
+  changeActivityDisplay() {
+    const activity = document.querySelector(".need1") as HTMLParagraphElement;
+    const feed = document.querySelector(".feed1") as HTMLButtonElement;
+    activity.textContent = this.activity;
+    feed.textContent = this.activity;
+  }
+  changePictureDisplay() {
+    kamelFace.classList.remove("hidden");
+  }
+  changeFeed3() {
+    const feed3 = document.querySelector(".feed3") as HTMLButtonElement;
+    const need3 = document.querySelector(".need3") as HTMLParagraphElement;
+    feed3.textContent = "Tacos";
+    need3.textContent = "Tacos";
+  }
+  /* makeCharacterAppear() {
+    const kamelFace = document.querySelector(".kamel-face") as HTMLImageElement;
+    kamelFace.classList.remove(".hidden");
+  } */
+}
+const kamelFace = document.querySelector(".kamel-face") as HTMLImageElement;
+const billyFace = document.querySelector(".billy-face") as HTMLImageElement;
+
+let kamelIsSelected: boolean = false;
+let billyIsSelected: boolean = false;
+
+const billyChoice = document.querySelector(".billy-choice") as HTMLImageElement;
+billyChoice.addEventListener("click", () => {
+  billyIsSelected = true;
+  kamelIsSelected = false;
+  billyChoice.classList.add("selected-border");
+  kamelChoice.classList.remove("selected-border");
+  console.log(billyIsSelected, kamelIsSelected);
+});
+const kamelChoice = document.querySelector(".kamel-choice") as HTMLImageElement;
+kamelChoice.addEventListener("click", () => {
+  kamelIsSelected = true;
+  billyIsSelected = false;
+  kamelChoice.classList.add("selected-border");
+  billyChoice.classList.remove("selected-border");
+  console.log(billyIsSelected, kamelIsSelected);
+});
+
+const homepage = document.querySelector(".homepage") as HTMLDivElement;
+const game = document.querySelector(".game") as HTMLDivElement;
 
 const startButton = document.querySelector(
   ".start-button"
 ) as HTMLButtonElement;
-
 startButton.addEventListener("click", () => {
-  hideHomepage();
-  displayGame();
-  playSound(pinaise.src);
-  startInterval();
-  storeUsername();
+  if (billyIsSelected !== kamelIsSelected) {
+    homepage.classList.add("hidden");
+    game.classList.remove("hidden");
+    displayRightCharacter();
+    startInterval();
+    feed("bar1", "feed1");
+    feed("bar2", "feed2");
+    feed("bar3", "feed3");
+  } else {
+    alert("Please pick a character to play Button");
+  }
 });
 
-/* function updateBar() {
-  const bars = document.querySelectorAll(
-    "progress"
-  ) as NodeListOf<HTMLProgressElement>;
-  bars.forEach((element) => {
-    if (element.value <= 0) {
-      gameOver();
-      clearInterval(interval);
-      console.log("Game over!");
-    } else if (element.value > 50) {
-      element.value = element.value - 10;
-      console.log(element.value);
-    } else if (element.value > 15 && element.value <= 50) {
-      element.value = element.value - 6;
-      console.log(element.value);
-    } else if (element.value > 0 && element.value <= 15) {
-      element.value = element.value - 2;
-      console.log(element.value);
-    } else {
-      console.log("erreur?");
-    }
-  });
-} */
+function displayRightCharacter() {
+  if (billyIsSelected === true && kamelIsSelected === false) {
+    let billy = new Billy("Billy");
+    billy.changeFoodDisplay();
+    billy.changePictureDisplay();
+    billy.changeFeed1();
+    console.log(billy.food);
+  } else if (billyIsSelected === false && kamelIsSelected === true) {
+    let kamel = new Kamel("Kamel");
+    kamel.changeActivityDisplay();
+    kamel.changePictureDisplay();
+    kamel.changeFeed3();
+    console.log(kamel.activity);
+  }
+}
+const bars = document.querySelectorAll(
+  "progress"
+) as NodeListOf<HTMLProgressElement>;
 
-const faces = document.querySelectorAll(
-  ".face"
-) as NodeListOf<HTMLImageElement>;
 function startInterval() {
   let interval = setInterval(() => {
-    /*     updateBar(); */
-    const bars = document.querySelectorAll(
-      "progress"
-    ) as NodeListOf<HTMLProgressElement>;
     bars.forEach((element) => {
-      /*  soundListener(element); */
       if (element.value <= 0) {
-        gameOver();
-        console.log(`from line 49 interval ID: ${interval}`);
+        // console.log(`from 120 interval ID: ${interval}`);
         clearInterval(interval);
         console.log("Game over!");
+        gameOver();
       } else if (element.value > 50) {
-        faces[0].classList.remove("hidden");
-        faces[1].classList.add("hidden");
-        faces[2].classList.add("hidden");
         element.value = element.value - 10;
         console.log(element.value);
       } else if (element.value > 15 && element.value <= 50) {
-        faces[0].classList.add("hidden");
-        faces[1].classList.remove("hidden");
-        faces[2].classList.add("hidden");
         element.value = element.value - 6;
         console.log(element.value);
       } else if (element.value > 0 && element.value <= 20) {
-        faces[0].classList.add("hidden");
-        faces[1].classList.add("hidden");
-        faces[2].classList.remove("hidden");
         element.value = element.value - 2;
         console.log(element.value);
       } else {
         console.log("erreur?");
       }
     });
-  }, 3000);
-  console.log(`from line 66 interval ID:${interval}`);
+  }, 1500);
+  // console.log(`from line 137 interval ID:${interval}`);
 }
-function hideHomepage() {
-  const homepage = document.querySelector(".homepage") as HTMLDivElement;
-  const rules = document.querySelector(".rules") as HTMLDivElement;
-  homepage.classList.add("hidden");
-  rules.classList.add("hidden");
-}
-
-function displayGame() {
-  const game = document.querySelector(".game") as HTMLDivElement;
-  game.classList.remove("hidden");
-}
-
-let kamel = new Kamel("Kamel", 100, 100, 100, "Kebab", "Game");
-
-kamel.displayFood();
-kamel.displayActivity();
-
-/* const bar2 = document.getElementById("bar-2") as HTMLProgressElement;
-console.log(bar2.value);
-
-const feed2 = document.querySelector(".feed2") as HTMLDivElement;
-
-feed2.addEventListener("click", () => {
-  bar2.value += 10;
-  console.log(`the bar's value I see is ${bar2.value}`);
-});
- */
-const bars = document.querySelectorAll(
-  "progress"
-) as NodeListOf<HTMLProgressElement>;
-
-const feedOptions = document.querySelectorAll(
-  ".feed"
-) as NodeListOf<HTMLDivElement>;
-feedOptions.forEach((element) => {
-  element.addEventListener("click", () => {
-    if (element.classList.contains("feed1")) {
-      bars[0].value += 10;
-    }
-    if (element.classList.contains("feed2")) {
-      bars[1].value += 10;
-    }
-    if (element.classList.contains("feed3")) {
-      bars[2].value += 10;
-    } else {
-      console.log("this is an error my friend");
-    }
-  });
-});
 
 function gameOver() {
-  playSound(lacune.src);
   bars.forEach((element) => {
     if (element.value <= 0) {
       const game = document.querySelector(".game") as HTMLDivElement;
@@ -144,66 +153,17 @@ function gameOver() {
       return;
     }
   });
-  displayUsername();
 }
 
-function playSound(audioName) {
-  let audio = new Audio(audioName);
-  audio.play();
-}
-
-let pinaise = document.getElementById("pinaise") as HTMLAudioElement;
-let donuts = document.getElementById("donuts") as HTMLAudioElement;
-let con = document.getElementById("con") as HTMLAudioElement;
-let crasseux = document.getElementById("crasseux") as HTMLAudioElement;
-let reuf = document.getElementById("reuf") as HTMLAudioElement;
-let lacune = document.getElementById("lacune") as HTMLAudioElement;
-let bart = document.getElementById("bart") as HTMLAudioElement;
-function soundListener(element) {
-  if (element.value === 90) {
-    playSound(donuts.src);
-  } else if (element.value === 60) {
-    playSound(con.src);
-  } else if (element.value === 44) {
-    playSound(crasseux.src);
-  } else if (element.value === 26) {
-    playSound(reuf.src);
-  } else if (element.value === 12) {
-    playSound(lacune.src);
-  } else if (element.value === 2) {
-    playSound(pinaise.src);
-  } else if (element.value === 0) {
-    playSound(bart.src);
-  }
-}
-
-const again = document.getElementById("again") as HTMLButtonElement;
-again.addEventListener("click", () => {
+const againButton = document.querySelector("#again") as HTMLButtonElement;
+againButton.addEventListener("click", () => {
   location.reload();
 });
 
-const cards = document.querySelectorAll(".card") as NodeListOf<HTMLDivElement>;
-
-cards[0].addEventListener("click", () => {
-  cards[0].classList.add("card-selected");
-  cards[1].classList.remove("card-selected");
-});
-
-cards[1].addEventListener("click", () => {
-  cards[1].classList.add("card-selected");
-  cards[0].classList.remove("card-selected");
-});
-
-const inputUsername = document.querySelector("#username") as HTMLInputElement;
-function storeUsername() {
-  let username: string = inputUsername.value;
-  localStorage.setItem("username", username);
-}
-
-const userGameOver = document.querySelector(
-  ".game-over-text"
-) as HTMLHeadingElement;
-
-function displayUsername() {
-  userGameOver.textContent = `Game over  ${localStorage.getItem("username")}`;
+function feed(bar: string, feed: string) {
+  const feedButton = document.querySelector(`.${feed}`) as HTMLButtonElement;
+  feedButton.addEventListener("click", () => {
+    const needBar = document.querySelector(`#${bar}`) as HTMLProgressElement;
+    needBar.value = needBar.value + 10;
+  });
 }

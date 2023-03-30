@@ -6,126 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tamagotchi</title>
     <link rel="stylesheet" href="style.scss" />
-    <script src="script.ts" type="module"></script>
+    <script type="module" src="script.ts" defer></script>
   </head>
   <body>
     <div class="homepage">
-      <div class="top-text">
-        <h1>Welcome,</h1>
-        <p>
-          please enter a name and select one of the two characters to start the
-          game:
-        </p>
-      </div>
-      <div class="character-selection">
-        <div class="card kamel-card">
-          <p>Kamel</p>
-          <div class="card-background">
-            <img
-              class="card-image"
-              src="../assets/kamel/kamel-yo-nobg.png"
-              alt="kamel's face"
-            />
-          </div>
+      <h1>Welcome to my Tamagotchi !</h1>
+      <h2>Choose between the two character to start playing:</h2>
+      <div class="character-choice">
+        <div>
+          <h3>Billy</h3>
+          <img
+            src="../assets/billy/billy-coucou-nobg.png"
+            alt="billy's choice"
+            class="choice billy-choice"
+          />
         </div>
-        <div class="card billy-card">
-          <p>Billy</p>
-          <div class="card-background">
-            <img
-              class="card-image"
-              src="../assets/billy/billy-coucou-nobg.png"
-              alt="billy's face"
-            />
-          </div>
+        <div>
+          <h3>Kamel</h3>
+          <img
+            src="../assets/kamel/kamel-neutre-nobg.png"
+            alt="kamel's choice"
+            class="choice kamel-choice"
+          />
         </div>
       </div>
-      <div class="name-input">
-        <p>Name:</p>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="enter a name"
-        />
-      </div>
-      <button class="start-button">Start</button>
-    </div>
-    <div class="rules">
-      <h2>Rules:</h2>
-      <p>The character has 3 status bars:</p>
-      <ul>
-        <li>Hapiness</li>
-        <li>Hunger</li>
-        <li>Thirst</li>
-      </ul>
-      <p>If one of these get to 0, the game is over</p>
-      <p>You can use the available options to fill your character's bars.</p>
+      <button class="start-button">START</button>
     </div>
     <div class="game hidden">
       <div class="character-side">
         <img
-          class="face"
+          class="billy-face hidden"
           src="../assets/billy/billy-happy-nobg.png"
           alt="billy's happy face"
         />
         <img
-          class="face hidden"
-          src="../assets/billy/billy-neutre-nobg.png"
-          alt="billy's neutral face"
-        />
-        <img
-          class="face hidden"
-          src="../assets/billy/billy-fou-nobg.png"
-          alt="billy's rage face"
+          class="kamel-face hidden"
+          src="../assets/kamel/kamel-happy-nobg.png"
+          alt="kamel's happy face"
         />
       </div>
-      <div class="status-side">
+      <div class="info-side">
         <div class="bars">
           <div>
-            <p>Hapiness</p>
-            <progress id="bar-1" min="0" max="100" value="0"></progress>
+            <p class="need1">Need 1</p>
+            <progress id="bar1" min="0" max="100" value="100"></progress>
           </div>
           <div>
-            <p>Hunger</p>
-            <progress id="bar-2" min="0" max="100" value="100"></progress>
+            <p class="need2">Water</p>
+            <progress id="bar2" min="0" max="100" value="100"></progress>
           </div>
           <div>
-            <p>Thirst</p>
-            <progress id="bar-3" min="0" max="100" value="100"></progress>
+            <p class="need3">Need 3</p>
+            <progress id="bar3" min="0" max="100" value="100"></progress>
           </div>
         </div>
-        <div class="feed-options">
-          <div class="feed feed1">
-            <p>Feed 1</p>
-            <div>
-              <img src="../assets/billy/billy-feed/tiger.png" alt="tiger" />
-            </div>
-          </div>
-          <div class="feed feed2">
-            <p>Feed 3</p>
-            <div>
-              <img src="../assets/billy/billy-feed/donuts.png" alt="donuts" />
-            </div>
-          </div>
-          <div class="feed feed3">
-            <p>Feed 3</p>
-            <div>
-              <img src="../assets/billy/billy-feed/water.png" alt="water" />
-            </div>
-          </div>
+        <div class="buttons">
+          <button class="feed1">Feed 1</button>
+          <button class="feed2">Water</button>
+          <button class="feed3">Feed 3</button>
         </div>
       </div>
     </div>
-    <div class="game-over hidden">
-      <h2 class="game-over-text">Game over!</h2>
-      <button id="again">Play again?</button>
+    <div class="game-over">
+      <h2>Game over!</h2>
+      <button id="again">Play again</button>
     </div>
   </body>
-  <audio id="pinaise" src="../assets/billy/billy-sounds/pinaise.mp3"></audio>
-  <audio id="donuts" src="../assets/billy/billy-sounds/donuts.mp3"></audio>
-  <audio id="con" src="../assets/billy/billy-sounds/con.mp3"></audio>
-  <audio id="crasseux" src="../assets/billy/billy-sounds/crasseux.mp3"></audio>
-  <audio id="reuf" src="../assets/billy/billy-sounds/reuf.mp3"></audio>
-  <audio id="lacune" src="../assets/billy/billy-sounds/lacune.mp3"></audio>
-  <audio id="bart" src="../assets/billy/billy-sounds/bart.mp3"></audio>
 </html>

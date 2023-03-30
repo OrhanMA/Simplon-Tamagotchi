@@ -1,283 +1,155 @@
-* {
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
 :root {
   font-size: 10px;
 }
 
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 $primary-color: #df9ad4;
 $button-color: #38f908;
-@mixin rowfullcenter {
+@mixin fullcenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-body {
-  @media screen and (min-width: 900px) {
-    @include rowfullcenter();
-    flex-direction: row;
-    flex-wrap: nowrap;
-    .rules {
-      width: 45%;
-      padding: 5rem;
-    }
-    .homepage {
-      width: 55%;
-    }
-  }
-}
-body > * {
-  @include rowfullcenter();
-  flex-direction: column;
-
-  * {
-    width: 95%;
-  }
-}
-
-.top-text {
-  @include rowfullcenter();
-  flex-direction: column;
-  text-align: center;
-  font-weight: bold;
-  gap: 2rem;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  h1 {
-    font-size: 3rem;
-  }
-  p {
-    font-size: 2.5rem;
-  }
-}
-
-.character-selection {
-  @include rowfullcenter;
-  * {
-    @include rowfullcenter();
-    flex-direction: column;
-    gap: 2rem;
-    font-size: 2.5rem;
-    font-weight: bold;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-}
-
-.card-background {
-  @include rowfullcenter;
-  width: 125px;
-  height: 125px;
-  background-color: $primary-color;
-  padding: 1rem;
-  border-radius: 50%;
-  img {
-    width: 80%;
-    height: auto;
-  }
-}
-
-.name-input {
-  @include rowfullcenter();
-  flex-direction: column;
-  text-align: center;
-  gap: 2rem;
-  margin-top: 3rem;
-
-  p {
-    font-size: 3rem;
-  }
-  input {
-    padding: 2rem;
-    border: solid 2px black;
-    border-radius: 10;
-    text-align: center;
-    font-size: 2rem;
-    width: 50%;
-  }
-}
-
-.start-button {
-  padding: 2rem;
-  margin: 4rem;
-  font-size: 2rem;
-  width: 40%;
-  background-color: $button-color;
-  border-radius: 25;
-}
-
-.rules {
+@mixin homepageText {
+  background-color: white;
   width: 100%;
-  padding: 1rem;
-  background-color: $primary-color;
+  padding: 2rem;
+}
+@mixin button-style {
+  padding: 2rem;
+  margin-top: 5rem;
+  width: 250px;
+  border: solid 3px white;
+  border-radius: 25;
+  background-color: $button-color;
   color: white;
+  font-size: 2rem;
   font-weight: bold;
-  h2 {
-    font-size: 2.5rem;
-  }
-  p {
-    font-size: 2rem;
-  }
-  ul {
-    font-size: 1.75rem;
-  }
+}
+.homepage {
+  @include fullcenter();
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
   * {
     margin: 2rem;
   }
-  @media screen and (min-width: 900px) {
-    height: 100vh;
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .character-choice {
+    padding: 2rem;
+    width: 100%;
+    background-image: url(../assets/canape.jpeg);
+    background-size: cover;
+    h3 {
+      @include homepageText();
+      border-radius: 50;
+      font-size: 2rem;
+    }
+    @include fullcenter();
+    gap: 5rem;
+    div {
+      @include fullcenter();
+      flex-direction: column;
+    }
+  }
+  .start-button:hover {
+    cursor: pointer;
+  }
+
+  .start-button {
+    @include button-style();
   }
 }
 
+.choice:hover {
+  cursor: pointer;
+}
+.selected-border {
+  padding: 2rem;
+  border: solid 3px white;
+  border-radius: 50%;
+  background-color: $primary-color;
+}
+
 .game {
-  width: 100%;
   height: 100vh;
-  @include rowfullcenter();
-  flex-direction: column;
-  @media screen and (min-width: 900px) {
-    @include rowfullcenter();
-    flex-direction: row;
-  }
-
+  width: 100vw;
+  @include fullcenter();
   .character-side {
-    background-image: url("../assets/canape.jpeg");
+    background: url(../assets/canape.jpeg);
     background-size: cover;
-    @include rowfullcenter();
-    width: 100%;
-    height: 35%;
-    @media screen and (min-width: 600px) and (max-width: 899px) {
-      height: 50%;
-    }
-    @media screen and (min-width: 900px) {
-      width: 55%;
-      height: 100%;
-    }
-    img {
-      height: 150px;
-      width: auto;
-      @media screen and (min-width: 600px) and (max-width: 899px) {
-        height: 200px;
-      }
-      @media screen and (min-width: 900px) {
-        height: 280px;
-      }
-    }
+    width: 50%;
+    height: 100%;
+    @include fullcenter();
   }
-
-  .status-side {
+  .info-side {
     color: white;
     font-size: 2.5rem;
     background-color: $primary-color;
-    width: 100%;
-    height: 65%;
-    @media screen and (min-width: 900px) {
-      width: 45%;
-      height: 100%;
-      border-left: solid 2px black;
-    }
-    img {
-      width: 40px;
-      @media screen and (min-width: 450px) {
-        width: 50px;
-      }
-    }
+    border: 2px solid black;
+    width: 50%;
+    height: 100%;
+    @include fullcenter();
+    flex-direction: column;
+    gap: 10rem;
     .bars {
-      @include rowfullcenter();
+      @include fullcenter();
       flex-direction: column;
-      text-align: center;
-      height: 60%;
-      @media screen and (min-width: 600px) and (max-width: 899px) {
-        max-width: 70%;
-      }
-      @media screen and (min-width: 900px) {
-        height: 60%;
-        padding: 0.5rem;
-        div {
-          margin: 2rem;
+      gap: 4rem;
+      div {
+        gap: 2rem;
+        @include fullcenter();
+        flex-direction: column;
+        progress {
+          padding: 2rem;
         }
       }
     }
-    .feed-options {
-      @include rowfullcenter();
-      padding: 2rem;
-      text-align: center;
-      align-items: flex-start;
-      @media screen and (min-width: 600px) and (max-width: 899px) {
-        max-width: 70%;
-      }
-      @media screen and (min-width: 900px) {
-        height: 40%;
-        padding: 1rem;
-        div {
-          margin: 2rem;
-        }
-      }
-      div {
-        gap: 10px;
-        @include rowfullcenter();
-        flex-direction: column;
-        div {
-          width: 70px;
-          height: 70px;
-          background-color: white;
-          padding: 5px;
-          border-radius: 100;
-        }
+    .buttons {
+      @include fullcenter();
+      gap: 2rem;
+      width: 100%;
+      button {
+        max-width: 30%;
+        padding: 2rem;
+        border-radius: 50;
+        font-size: 2rem;
       }
     }
   }
 }
 
 .game-over {
-  width: 100%;
-  height: 100vh;
-  background-image: url(../assets/canape.jpeg);
-  background-size: cover;
-  font-weight: bold;
-  @include rowfullcenter();
+  @include fullcenter();
   flex-direction: column;
-  text-align: center;
-  gap: 20rem;
+  height: 100vh;
+  background: url(../assets/canape.jpeg);
+  background-size: cover;
+  gap: 15rem;
   h2 {
-    font-size: 4rem;
-    @media screen and (min-width: 400px) {
-      font-size: 5rem;
-    }
-    @media screen and (min-width: 900px) {
-      font-size: 7rem;
-    }
+    font-size: 6rem;
   }
   button {
-    padding: 3rem;
-    background-color: $button-color;
-    font-size: 2rem;
-    width: 150px;
-    border-radius: 25;
-    @media screen and (min-width: 400px) {
-      width: 300px;
-      font-size: 3rem;
-    }
+    @include button-style();
   }
+}
+
+#again:hover {
+  cursor: pointer;
 }
 
 .hidden {
   display: none;
-}
-
-.card-selected {
-  background-color: $primary-color;
-  border-radius: 25;
-  border: solid 2px black;
-  p {
-    color: white;
-  }
-  div {
-    background-color: white;
-  }
 }
