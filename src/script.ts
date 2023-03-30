@@ -12,6 +12,7 @@ startButton.addEventListener("click", () => {
   displayGame();
   playSound(pinaise.src);
   startInterval();
+  storeUsername();
 });
 
 /* function updateBar() {
@@ -55,8 +56,6 @@ function startInterval() {
         clearInterval(interval);
         console.log("Game over!");
       } else if (element.value > 50) {
-        element.classList.remove("yellow-bar");
-
         faces[0].classList.remove("hidden");
         faces[1].classList.add("hidden");
         faces[2].classList.add("hidden");
@@ -78,7 +77,7 @@ function startInterval() {
         console.log("erreur?");
       }
     });
-  }, 1500);
+  }, 3000);
   console.log(`from line 66 interval ID:${interval}`);
 }
 function hideHomepage() {
@@ -145,6 +144,7 @@ function gameOver() {
       return;
     }
   });
+  displayUsername();
 }
 
 function playSound(audioName) {
@@ -193,3 +193,17 @@ cards[1].addEventListener("click", () => {
   cards[1].classList.add("card-selected");
   cards[0].classList.remove("card-selected");
 });
+
+const inputUsername = document.querySelector("#username") as HTMLInputElement;
+function storeUsername() {
+  let username: string = inputUsername.value;
+  localStorage.setItem("username", username);
+}
+
+const userGameOver = document.querySelector(
+  ".game-over-text"
+) as HTMLHeadingElement;
+
+function displayUsername() {
+  userGameOver.textContent = `Game over  ${localStorage.getItem("username")}`;
+}
