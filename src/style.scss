@@ -61,6 +61,8 @@ $button-color: #38f908;
     background-image: url(../assets/canape.jpeg);
     background-size: cover;
     margin: 0;
+    @include fullcenter();
+    justify-content: space-evenly;
     @media (max-width: 500px) {
       margin: 0;
     }
@@ -76,7 +78,6 @@ $button-color: #38f908;
         font-size: 4rem;
       }
     }
-    @include fullcenter();
     gap: 5rem;
     @media (max-width: 500px) {
       flex-direction: column;
@@ -88,6 +89,9 @@ $button-color: #38f908;
       img {
         margin: 0;
         width: 150px;
+        @media (min-width: 100px) {
+          width: 220px;
+        }
       }
       @media (max-width: 500px) {
         flex-direction: row;
