@@ -9,8 +9,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  height: 100vh;
+}
 
-$primary-color: #df9ad4;
+$primary-color: #ffcbd4;
 $button-color: #38f908;
 @mixin fullcenter {
   display: flex;
@@ -27,7 +30,7 @@ $button-color: #38f908;
   padding: 2rem;
   margin-top: 5rem;
   width: 250px;
-  border: solid 3px white;
+  border: solid 4px rgb(140, 133, 133);
   border-radius: 25;
   background-color: $button-color;
   color: white;
@@ -39,6 +42,8 @@ $button-color: #38f908;
   @include fullcenter();
   flex-direction: column;
   text-align: center;
+  background-color: $primary-color;
+  height: 100%;
   * {
     margin: 2rem;
   }
@@ -96,6 +101,11 @@ $button-color: #38f908;
       @media (max-width: 500px) {
         flex-direction: row;
       }
+      @media (max-width: 500px) {
+        h3 {
+          max-width: 35%;
+        }
+      }
     }
   }
   .start-button:hover {
@@ -141,16 +151,21 @@ $button-color: #38f908;
     }
     @include fullcenter();
     img {
-      @media (min-width: 800px) {
+      @media (min-width: 750px) {
         width: 250px;
       }
     }
   }
   .info-side {
-    color: white;
     font-size: 2.5rem;
+    font-weight: bold;
     background-color: $primary-color;
-    border: 2px solid black;
+    @media (max-width: 750px) {
+      border-top: solid 3px black;
+    }
+    @media (min-width: 751px) {
+      border-left: 4px solid black;
+    }
     width: 50%;
     height: 100%;
     @include fullcenter();
