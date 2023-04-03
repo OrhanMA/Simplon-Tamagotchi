@@ -1,4 +1,6 @@
 "use strict";
+import Kamel from "./kamel";
+import Billy from "./billy";
 
 const homepage = document.querySelector(".homepage") as HTMLDivElement;
 const game = document.querySelector(".game") as HTMLDivElement;
@@ -11,81 +13,32 @@ const bars = document.querySelectorAll(
 
 let kamelIsSelected: boolean = false;
 let billyIsSelected: boolean = false;
-export default class Streamer {
-  name: string;
-  face: HTMLImageElement;
-  special: string;
-  specialNeed: HTMLParagraphElement;
-  specialFeed: HTMLButtonElement;
-  need: string;
-  currentNeed: HTMLParagraphElement;
-  currentFeed: HTMLButtonElement;
-  constructor(
-    name: string,
-    face: HTMLImageElement,
-    special: string,
-    specialNeed: HTMLParagraphElement,
-    specialFeed: HTMLButtonElement,
-    need: string,
-    currentNeed: HTMLParagraphElement,
-    currentFeed: HTMLButtonElement
-  ) {
-    this.name = name;
-    this.face = face;
-    this.special = special;
-    this.specialNeed = specialNeed;
-    this.specialFeed = specialFeed;
-    this.need = need;
-    this.currentNeed = currentNeed;
-    this.currentFeed = currentFeed;
-  }
-  changePictureDisplay() {
-    this.face.classList.remove("hidden");
-  }
-  changeSpecialDisplay() {
-    this.specialNeed.textContent = this.special;
-    this.specialFeed.textContent = this.special;
-  }
-  changeFeed() {
-    this.currentNeed.textContent = this.need;
-    this.currentFeed.textContent = this.need;
-  }
-  setCharacter() {
-    this.changePictureDisplay();
-    this.changeSpecialDisplay();
-    this.changeFeed();
-  }
-}
 
-const billySpecialNeed = document.querySelector(
+export const billySpecialNeed = document.querySelector(
   ".need3"
 ) as HTMLParagraphElement;
-const billySpecialFeed = document.querySelector(".feed3") as HTMLButtonElement;
-const billyCurrentNeed = document.querySelector(
+export const billySpecialFeed = document.querySelector(
+  ".feed3"
+) as HTMLButtonElement;
+export const billyCurrentNeed = document.querySelector(
   ".need1"
 ) as HTMLParagraphElement;
-const billyCurrentFeed = document.querySelector(".feed1") as HTMLButtonElement;
-class Billy extends Streamer {
-  specialNeed = billySpecialNeed;
-  specialFeed = billySpecialFeed;
-  currentNeed = billyCurrentNeed;
-  currentFeed = billyCurrentFeed;
-}
+export const billyCurrentFeed = document.querySelector(
+  ".feed1"
+) as HTMLButtonElement;
 
-const kamelSpecialNeed = document.querySelector(
+export const kamelSpecialNeed = document.querySelector(
   ".need1"
 ) as HTMLParagraphElement;
-const kamelSpecialFeed = document.querySelector(".feed1") as HTMLButtonElement;
-const kamelCurrentNeed = document.querySelector(
+export const kamelSpecialFeed = document.querySelector(
+  ".feed1"
+) as HTMLButtonElement;
+export const kamelCurrentNeed = document.querySelector(
   ".need3"
 ) as HTMLParagraphElement;
-const kamelCurrentFeed = document.querySelector(".feed3") as HTMLButtonElement;
-class Kamel extends Streamer {
-  specialNeed = kamelSpecialNeed;
-  specialFeed = kamelSpecialFeed;
-  currentNeed = kamelCurrentNeed;
-  currentFeed = kamelCurrentFeed;
-}
+export const kamelCurrentFeed = document.querySelector(
+  ".feed3"
+) as HTMLButtonElement;
 
 const billyChoice = document.querySelector(".billy-choice") as HTMLImageElement;
 billyChoice.addEventListener("click", () => {
