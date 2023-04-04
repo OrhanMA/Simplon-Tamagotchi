@@ -146,7 +146,6 @@ function feed(bar: string, feed: string) {
   });
 }
 
-const consoleInput = document.querySelector("#inputText") as HTMLInputElement;
 const needs = document.querySelectorAll(
   ".needs"
 ) as NodeListOf<HTMLParagraphElement>;
@@ -155,6 +154,10 @@ window.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     let inputElement = document.querySelector("#inputText") as HTMLInputElement;
     let inputValue = inputElement.value;
+    const lastInput = document.querySelector(
+      ".lastInput"
+    ) as HTMLParagraphElement;
+    lastInput.textContent = inputValue;
     for (let i = 0; i < needs.length; i++) {
       if (inputValue === needs[i].textContent) {
         console.log("same");

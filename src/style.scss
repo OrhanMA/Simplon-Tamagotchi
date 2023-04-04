@@ -172,17 +172,19 @@ $button-color: #38f908;
         text-align: center;
       }
     }
-    @media (max-width: 750px) {
-      border-top: solid 3px black;
-    }
-    @media (min-width: 751px) {
-      border-left: 4px solid black;
-    }
     width: 50%;
     height: 100%;
     @include fullcenter();
     flex-direction: column;
     gap: 10rem;
+    @media (max-width: 750px) {
+      border-top: solid 3px black;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    @media (min-width: 751px) {
+      border-left: 4px solid black;
+    }
     @media (max-width: 750px) {
       width: 100%;
       height: 50%;
