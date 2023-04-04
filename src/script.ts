@@ -145,3 +145,33 @@ function feed(bar: string, feed: string) {
     needBar.value = needBar.value + 10;
   });
 }
+
+const consoleInput = document.querySelector("#inputText") as HTMLInputElement;
+const needs = document.querySelectorAll(
+  ".needs"
+) as NodeListOf<HTMLParagraphElement>;
+console.log(needs);
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    let inputElement = document.querySelector("#inputText") as HTMLInputElement;
+    let inputValue = inputElement.value;
+    for (let i = 0; i < needs.length; i++) {
+      if (inputValue === needs[i].textContent) {
+        console.log("same");
+        if (needs[i] === needs[0]) {
+          bars[0].value = bars[0].value + 10;
+        } else if (needs[i] === needs[1]) {
+          bars[1].value = bars[1].value + 10;
+        } else if (needs[i] === needs[2]) {
+          bars[2].value = bars[2].value + 10;
+        }
+      } else {
+        console.log("not the same");
+      }
+    }
+    console.log(inputElement.value);
+    inputElement.value = "";
+  } else {
+    return;
+  }
+});
