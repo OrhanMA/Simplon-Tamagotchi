@@ -1,36 +1,48 @@
 # Simplon-Tamagotchi
 
-Créer un Tamagochi et ses compagnons grâce à Javascript et la POO.
+## Créer un Tamagochi et ses compagnons grâce à Javascript et la POO.
 
-Cahier des charges du projet:
+> ## Lancer le projet
 
-Cahier des charges
+<br/>
 
-Fonctionnel
+```
+git clone git@github.com:OrhanMA/Simplon-Tamagotchi.git
+cd Simplon-Tamagotchi
+npm install
+npx parcel src/index.html
+```
 
-L’utilisateur arrive sur un écran d’accueil, celui-ci contient un formulaire pour saisir le nom de son compagnon et sélectionner le type de compagnon qu’il souhaite jouer.
+> ## Cahier des charges du projet:
 
-Il lance le jeu à l’aide d’un bouton “commercer”.
+<br/>
 
-Vos compagnons ont trois jauges indiquant le niveau d’un besoin (par exemple : bonheur, soif et faim. Vous êtes libre de changer l’intitulé des jauges), chaque compagnon à au moins une de ces trois jauges qui lui est propre.
+> ### Fonctionnel
 
-Le niveau des jauges baisse automatiquement et chaque jauge dispose d’un bouton pour l’alimenter.
+- L’utilisateur arrive sur un écran d’accueil, celui-ci contient un formulaire pour saisir le nom de son compagnon et sélectionner le type de compagnon qu’il souhaite jouer.
 
-Lorsque les trois jauges tombent à zéro l’utilisateur à perdu.
+- Il lance le jeu à l’aide d’un bouton “commercer”.
 
-Technique
+- Les personnages ont trois jauges indiquant le niveau d’un besoin (par exemple : bonheur, soif et faim). Vous êtes libre de changer l’intitulé des jauges et chaque compagnon à au moins une de ces trois jauges qui lui est propre.
 
-Votre jeu comporte à minima une classe parente et deux classes enfants qui l'étendent.
+- Le niveau des jauges baisse automatiquement et chaque jauge dispose d’un bouton pour l’alimenter.
 
-Les compagnons à disposition de l’utilisateur sont vos classes enfants, exemple :
+- Lorsque les trois jauges tombent à zéro l’utilisateur à perdu.
 
-Classe parent (l’utilisateur ne peut pas la jouer) : Dog
+> ### Technique
 
-Classes enfants (l’utilisateur peut les jouer) : Labrador et Dalmatien
+<br/>
 
-Les jauges du compagnon commencent à 100% lorsque le jeu démarre et diminuent de la manière suivante :
+- Votre jeu comporte à minima une classe parente et deux classes enfants qui l'étendent.
 
-diminue de 10% entre 50% et 100% de point de vie
-diminue de 6% entre 15% et 50% de point de vie
-diminue de 2% entre 0% et 15% de point de vie
-L’utilisateur peut alimenter les jauges à l’aide d’un bouton qui augmente la jauge de 10%, la jauge ne peut pas dépasser les 100%.
+- Les compagnons à disposition de l’utilisateur sont vos classes enfants, exemple :
+
+- Classe parent (l’utilisateur ne peut pas la jouer) : Dog
+
+- Classes enfants (l’utilisateur peut les jouer) : Labrador et Dalmatien
+
+- Les jauges du compagnon commencent à 100% lorsque le jeu démarre et diminuent de la manière suivante :
+  - diminue de 10% entre 50% et 100% de point de vie
+  - diminue de 6% entre 15% et 50% de point de vie
+  - diminue de 2% entre 0% et 15% de point de vie
+  - L’utilisateur peut alimenter les jauges à l’aide d’un bouton qui augmente la jauge de 10%, la jauge ne peut pas dépasser les 100%.
