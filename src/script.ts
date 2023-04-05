@@ -149,17 +149,17 @@ function feed(bar: string, feed: string) {
 const needs = document.querySelectorAll(
   ".needs"
 ) as NodeListOf<HTMLParagraphElement>;
-console.log(needs);
+// console.log(needs);
 window.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     let inputElement = document.querySelector("#inputText") as HTMLInputElement;
-    let inputValue = inputElement.value;
+    let inputValue = inputElement.value.toLowerCase();
     const lastInput = document.querySelector(
       ".lastInput"
     ) as HTMLParagraphElement;
     lastInput.textContent = inputValue;
     for (let i = 0; i < needs.length; i++) {
-      if (inputValue === needs[i].textContent) {
+      if (inputValue === needs[i].textContent?.toLowerCase()) {
         console.log("same");
         if (needs[i] === needs[0]) {
           bars[0].value = bars[0].value + 10;
